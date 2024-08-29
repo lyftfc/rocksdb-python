@@ -4,12 +4,14 @@ find_path(ROCKSDB_ROOT_DIR
 
 find_library(ROCKSDB_LIB_PATH
     NAMES rocksdb
-    HINTS ${ROCKSDB_ROOT_DIR}
+    HINTS ENV ROCKSDB_LIB_PATH
+    PATHS ${ROCKSDB_ROOT_DIR}
 )
 
 find_path(ROCKSDB_INCLUDE_DIR
     NAMES rocksdb/db.h
-    HINTS ${ROCKSDB_ROOT_DIR}/include
+    HINTS ENV ROCKSDB_INCLUDE_DIR
+    PATHS ${ROCKSDB_ROOT_DIR}/include
 )
 
 include(FindPackageHandleStandardArgs)
